@@ -1,0 +1,27 @@
+{
+  "开发指南": [
+    {
+      "name": "giud",
+      "path": "/giud",
+      "desc": "介绍"
+    },
+    {
+      "name": "install",
+      "path": "/install",
+      "desc": "安装"
+    }
+  ],
+  "插件": [
+    {
+      "desc": "完成插件",
+      "path": "/component",
+      "items":[
+        {
+          "desc": "订阅发布模式",
+          "name": "subscribe",
+          "path": "/subscribe"
+        }
+      ]
+    }
+  ]
+}
