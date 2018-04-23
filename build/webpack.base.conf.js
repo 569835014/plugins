@@ -61,7 +61,7 @@ const vueMarkdown = {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './example/main.js'
+    app: process.env.NODE_ENV === 'public'?'./libraries/index.js':'./example/main.js'
   },
   output: {
     path: config.build.assetsRoot,

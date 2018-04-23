@@ -7,9 +7,12 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "public": "node build/public.js",
+    "publish": "node build/publish.js"
   },
   "dependencies": {
+    "inquirer": "^5.2.0",
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
     "markdown-it-container": "^2.0.0",
