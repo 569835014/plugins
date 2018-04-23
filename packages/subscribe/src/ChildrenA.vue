@@ -14,6 +14,7 @@
         send:10
       }
     },
+
     methods:{
       sendItem(item){
         this.$subscribe.emit('add',item)

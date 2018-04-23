@@ -24,8 +24,8 @@
 <template>
   <header class="page-header" :style="$route.name === 'index' ? 'box-shadow:none' : 'box-shadow:0 10px 60px 0 rgba(29,29,31,0.07)'">
     <div class="header-container">
-      <router-link :to="{name: 'index'}"><img src="../assets/img/banner.png" width="100"></router-link>
-      <router-link :to="{name: 'giud'}">组件</router-link>
+      <router-link :to="{name: 'index'}"><img src="https://static.guahao.cn/front/portal-pc-static/img/2015/wy.png" width="120"></router-link>
+      <router-link :to="{name: 'giud'}">插件</router-link>
     </div>
   </header>
 </template>

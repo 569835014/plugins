@@ -52,6 +52,7 @@
 
   .container {
     margin: 48px auto;
+    min-height: calc(100vh - 80px - 227px - 48px - 48px);
     width: 90%;
     background-color: #fff;
     box-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
