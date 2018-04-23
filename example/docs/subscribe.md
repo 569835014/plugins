@@ -7,7 +7,7 @@
  export default {
     methods: {
       hello() {
-        alert('Hello World!');
+        alert('Hello World!!');
       }
     }
   }
