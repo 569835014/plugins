@@ -4,7 +4,7 @@
 
 <script>
   export default {
-    name: "ChildrenA",
+    name: "ChildrenB",
     data() {
       return {
         item:null

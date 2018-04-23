@@ -24,12 +24,72 @@
 
 ::: demo
 ```html
+ 父组件有两个子组件a和b
+ <div class="subscribe">
+    <children-a></children-a>
+    <children-b></children-b>
+ </div>
 
-<div>
- <subscribe></subscribe>
-</div>
 
 ```
+```vue
+  <template>
+    <div>
+      <ul>
+        <li v-for="item in send" @click="sendItem(item)">点击通过订阅发布模式传递数据{{item}}</li>
+      </ul>
+    </div>
+  </template>
+  
+  <script>
+    export default {
+      name: "ChildrenA",
+      data(){
+        return {
+          send:10
+        }
+      },
+  
+      methods:{
+        sendItem(item){
+          this.$subscribe.emit('add',item)
+        }
+      }
+    }
+  </script>
+  
+  <style scoped>
+  
+  </style>
+
+```
+```vue
+  <template>
+    <div>我来显示信息{{item}}</div>
+  </template>
+  
+  <script>
+    export default {
+      name: "ChildrenB",
+      data() {
+        return {
+          item:null
+        }
+      },
+      created(){
+        this.$subscribe.on('add',(item)=>{
+          this.item=item
+        })
+      }
+    }
+  </script>
+  
+  <style scoped>
+  
+  </style>
+
+```
+
 :::
 
 
