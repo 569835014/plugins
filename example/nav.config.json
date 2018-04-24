@@ -20,6 +20,11 @@
           "desc": "订阅发布模式",
           "name": "subscribe",
           "path": "/subscribe"
+        },
+        {
+          "desc": "表单验证",
+          "name": "valiform",
+          "path": "/valiform"
         }
       ]
     }

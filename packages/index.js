@@ -3,7 +3,7 @@
  * Date: 17/11/9
  */
 import Subscribe from './subscribe/index.js';
-console.info(require('../lib/we-plugins.min'))
+import ValiForm from './valiform/index.js';
 import Skeleton  from './skeleton/index'
 import Col  from './col/index'
 import Row  from './row/index'
@@ -13,7 +13,8 @@ const components = [
   Subscribe,
   Skeleton,
   Row,
-  Col
+  Col,
+  ValiForm
 ]
 
 const install = function(Vue) {
@@ -35,6 +36,7 @@ export default {
   Skeleton,
   Row,
   Col,
+  ValiForm,
   MetaInfo,
   install
 }

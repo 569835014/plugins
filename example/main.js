@@ -6,10 +6,11 @@ import router from './router'
 import demoBlock from './components/demo-block.vue'
 import VVUI from '../packages/index'
 // import '../packages/theme-default/lib/index.css'
-
+// import semantic from './semantic/dist/semantic'
+import './semantic/dist/semantic.css'
 Vue.component('demo-block', demoBlock)
 Vue.use(VVUI)
-
+// Vue.prototype.$semantic=semantic;
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
