@@ -3,6 +3,8 @@
  * Date: 17/11/9
  */
 import Subscribe from './subscribe/index.js';
+const a=require('../lib/we-plugins.min.js')
+console.info(a)
 import Skeleton  from './skeleton/index'
 import Col  from './col/index'
 import Row  from './row/index'

@@ -64,9 +64,9 @@ module.exports = {
     app: process.env.NODE_ENV === 'public'?'./libraries/index.js':'./example/main.js'
   },
   output: {
-    path: config.build.assetsRoot,
+    path: process.env.NODE_ENV === 'public'?config.public.assetsRoot:config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
+    publicPath: process.env.NODE_ENV === 'public'?config.public.assetsPublicPath:process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },

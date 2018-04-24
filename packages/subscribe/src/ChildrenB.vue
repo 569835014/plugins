@@ -12,6 +12,7 @@
     },
     created(){
       this.$subscribe.on('add',(item)=>{
+
         this.item=item
       })
     }

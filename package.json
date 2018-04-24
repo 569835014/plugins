@@ -1,9 +1,9 @@
 {
-  "name": "plugins",
-  "version": "1.0.0",
+  "name": "we-plugins",
+  "version": "1.0.2",
   "description": "lib",
   "author": "minzhang <569835014@qq.com>",
-  "private": true,
+  "main": "lib/we-plugins.min.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -12,17 +12,17 @@
     "publish": "node build/publish.js"
   },
   "dependencies": {
+    "vue": "^2.5.2",
+    "vue-markdown-loader": "^2.4.1",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
     "inquirer": "^5.2.0",
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
     "markdown-it-container": "^2.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "vue": "^2.5.2",
-    "vue-markdown-loader": "^2.4.1",
-    "vue-router": "^3.0.1"
-  },
-  "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
