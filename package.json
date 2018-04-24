@@ -1,6 +1,6 @@
 {
   "name": "we-plugins",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "lib",
   "author": "minzhang <569835014@qq.com>",
   "main": "lib/we-plugins.min.js",

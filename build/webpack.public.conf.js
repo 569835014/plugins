@@ -26,15 +26,15 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': env
     }),
-    // new UglifyJsPlugin({
-    //   uglifyOptions: {
-    //     compress: {
-    //       warnings: false
-    //     }
-    //   },
-    //   sourceMap: config.public.productionSourceMap,
-    //   parallel: true
-    // }),
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        compress: {
+          warnings: false
+        }
+      },
+      sourceMap: config.public.productionSourceMap,
+      parallel: true
+    }),
     // extract css into its own file
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
