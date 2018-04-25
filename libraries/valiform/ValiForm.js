@@ -59,7 +59,7 @@ class ValiForm {
     for (let i = 0; i < len; i++) {
       let key = keys[i]
       let item = data[key];
-      let result = this.valiField(item)
+      let result = this.valiField(item,data)
       if (!result.success) {
         res[key] = result
         //非必要属性不影响验证的结果，但是会验证单个
@@ -80,7 +80,7 @@ class ValiForm {
     for (let i = 0; i < len; i++) {
       let key = keys[i]
       let item = data[key];
-      let res = this.valiField(item)
+      let res = this.valiField(item,data)
       if (!res.success) {
         if(item.unNecessary){
           result[key]=res
@@ -115,7 +115,7 @@ class ValiForm {
    * value:待验证字段的值
    * join:连接符 and 或者 or
    */
-  valiField(Field) {
+  valiField(Field,data) {
     let rules = Field.rules;
     let len = rules.length;
     let flag = false;
@@ -131,6 +131,14 @@ class ValiForm {
             break;
           case 'outFun':
             flag = this.evalOutFun(Field.item.rule)
+        }
+
+        if(item.equal){
+          let equal=data[item.equal];
+          if(!equal||equal.value!=Field.value){
+            flag=false;
+            item.msg= item.equalMsg?item.equalMsg:`两次输入不相符`
+          }
         }
         if (!flag) {
           return {
@@ -159,6 +167,13 @@ class ValiForm {
           case 'outFun':
             flag = this.evalOutFun(Field.item.rule)
 
+        }
+        if(item.equal){
+          let equal=data[item.equal];
+          if(!equal||equal.value!=Field.value){
+            flag=false;
+            item.msg= item.equalMsg?item.equalMsg:`两次输入不相符`
+          }
         }
         if (flag) {
           return {

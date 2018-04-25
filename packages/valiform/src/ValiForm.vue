@@ -121,6 +121,8 @@
             {
               type:'inFun',
               rule:'required',
+              equal:'number',
+              equalMsg:'两次输入不相符?',
               msg:'年龄不能为空'
             },
             {
@@ -156,7 +158,7 @@
             this.rules[key].value=this.form[key]
           }
         }
-        this.valiResult=valiForm.form(this.rules,true)
+        this.valiResult=valiForm.form(this.rules,false)
       }
     }
   }
