@@ -66,10 +66,35 @@
               msg:'用户名可以为邮箱\\电话\\6-12位字符',
               join:'or'
             },
+          ],
+          join:'and'
+        },
+        email:{
+          rules:[
             {
               type:'inFun',
-              rule:'maxLength(40)',
-              msg:'最大长度不能超过40个字符'
+              rule:'required',
+              msg:'用户名不能为空'
+            },
+            {
+              type:'patter',
+              rule:'email',
+              msg:'邮箱不能格式不正确',
+            },
+          ],
+          join:'and'
+        },
+        idCard:{
+          rules:[
+            {
+              type:'inFun',
+              rule:'required',
+              msg:'用户名不能为空'
+            },
+            {
+              type:'patter',
+              rule:'idCard',
+              msg:'身份证格式不正确',
             },
           ],
           join:'and'

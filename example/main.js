@@ -7,7 +7,7 @@ import demoBlock from './components/demo-block.vue'
 import VVUI from '../packages/index'
 // import '../packages/theme-default/lib/index.css'
 // import semantic from './semantic/dist/semantic'
-import './semantic/dist/semantic.css'
+import './semantic/dist/semantic.min.css'
 Vue.component('demo-block', demoBlock)
 Vue.use(VVUI)
 // Vue.prototype.$semantic=semantic;
