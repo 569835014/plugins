@@ -171,9 +171,14 @@ class ValiForm{
         let len=patterArr.length;
         if(join==='and'){
             for(let i=0;i<len;i++){
-                if(this.valiReg(str,patterArr[i])) return false
+                if(!this.valiReg(str,patterArr[i])) return false
             }
             return true
+        }else{
+          for(let i=0;i<len;i++){
+            if(this.valiReg(str,patterArr[i])) return true
+          }
+          return false
         }
     }
     valiReg(str,reg){
