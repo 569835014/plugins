@@ -3,7 +3,7 @@ import Session from './session/Session'
 import * as Util from './util/index'
 const {hasClass, getData, addClass, prefixStyle} = Util.Dom;
 const URL=Util.URL;
-const myPlugins = {
+const wePlugins = {
   Subscribe,
   Session,
   Util
@@ -18,6 +18,6 @@ export {
   prefixStyle,
   URL
 }
-window.myPlugins = myPlugins
-export default myPlugins
+window.myPlugins = wePlugins
+export default wePlugins
 
