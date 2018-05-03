@@ -2,6 +2,7 @@ import Subscribe from './subscribe/Subscribe'
 import Session from './session/Session'
 import * as Util from './util/index'
 const {hasClass, getData, addClass, prefixStyle, absolutePosition, assertionDom, getStyle,} = Util.Dom;
+const {random}=Util.Tool
 const URL = Util.URL;
 const wePlugins = {
   Subscribe,
@@ -19,6 +20,7 @@ export {
   absolutePosition,
   assertionDom,
   getStyle,
+  random,
   URL
 }
 window.myPlugins = wePlugins

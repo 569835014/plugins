@@ -4,7 +4,7 @@
  * @param m number
  * @returns {number}
  */
-function getRandom(n, m) {
+export function random(n, m) {
   if (isNaN(n) || isNaN(m)) {
     return Math.random();
   }
