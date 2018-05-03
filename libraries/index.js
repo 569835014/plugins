@@ -23,6 +23,6 @@ export {
   random,
   URL
 }
-window.myPlugins = wePlugins
+window.wePlugins = wePlugins
 export default wePlugins
 
