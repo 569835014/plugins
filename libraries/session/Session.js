@@ -1,9 +1,11 @@
 class Session {
-  static Storage='sessionStorage'
-  static saveItem (key, value) {
+  static Storage = 'sessionStorage'
+
+  static saveItem(key, value) {
     window[this.Storage].setItem(key, JSON.stringify(value))
   }
-  static getItem (key) {
+
+  static getItem(key) {
     let value = window[this.Storage].getItem(key)
     try {
       return JSON.parse(value)
@@ -11,20 +13,29 @@ class Session {
       return value
     }
   }
-  static removeItem (key) {
+
+  static removeItem(key) {
     window[this.Storage].removeItem(key)
   }
-  static clear () {
+
+  static clear() {
     window[this.Storage].clear()
   }
-  static getProp (key, prop) {
+
+  static getProp(key, prop) {
     let value = this.getItem(key)
     if (value) return value[prop]
     return null
   }
-  static install (Vue, Storage = 'sessionStorage') {
-    Session.Storage = Storage
+
+  static initStorage(Storage) {
+    this.Storage = Storage
+  }
+
+  static install(Vue, Storage = 'sessionStorage') {
+    Session.initStorage(Storage)
     Vue.prototype.$storage = Session
   }
 }
+
 export default Session

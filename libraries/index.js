@@ -1,23 +1,23 @@
 import Subscribe from './subscribe/Subscribe'
 import Session from './session/Session'
 import * as Util from './util/index'
-const myPlugins={
+const {hasClass, getData, addClass, prefixStyle} = Util.Dom;
+const URL=Util.URL;
+const myPlugins = {
   Subscribe,
   Session,
-  ...Util
+  Util
 };
-window.myPlugins=myPlugins
-const keys=Object.keys(myPlugins);
-keys.map((item)=>{
-  if(item!=='Util'){
-    exports[item]=myPlugins[item]
-  }else{
-    let _keys=Object.keys(myPlugins[item])
-    _keys.map((list)=>{
-      exports[list]=myPlugins[item][list]
-    })
-  }
-})
-Object.defineProperty(exports, '__esModule', { value: true });
+
+export {
+  Subscribe,
+  Session,
+  hasClass,
+  getData,
+  addClass,
+  prefixStyle,
+  URL
+}
+window.myPlugins = myPlugins
 export default myPlugins
 

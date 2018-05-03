@@ -115,7 +115,7 @@ class ValiForm {
    * value:待验证字段的值
    * join:连接符 and 或者 or
    */
-  valiField(Field,data) {
+   valiField(Field,data) {
     let rules = Field.rules;
     let len = rules.length;
     let flag = false;
@@ -130,7 +130,7 @@ class ValiForm {
             flag = this.evalInFun(Field.value, item.rule)
             break;
           case 'outFun':
-            flag = this.evalOutFun(Field.item.rule)
+            flag =  this.evalOutFun(Field.item.rule)
         }
 
         if(item.equal){

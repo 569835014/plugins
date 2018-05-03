@@ -96,7 +96,7 @@
             {
               type:'patter',
               rule:'idCard',
-              msg:'身份证格式不正确',
+              msg:'身份证格式不正确`',
             },
           ],
           join:'and'
