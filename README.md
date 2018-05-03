@@ -1,21 +1,22 @@
 # plugins
 
-> lib
+> 一个简单实用的工具函数库，可用于日常工作中。
 
-## Build Setup
+*目前还在开发中，谨慎实用。*
 
-``` bash
-# install dependencies a
-npm install
+## 项目结构说明
 
-# serve with hot reload at localhost:8080
-npm run dev
 
-# build for production with minification
-npm run build
+## 常用命令说明
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 意见/建议
+
+
+## 贡献代码/开发说明
+
+
+## 协议
+
+
+## 参考
