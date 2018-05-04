@@ -1,7 +1,7 @@
 {
   "name": "we-plugins",
   "version": "1.0.5",
-  "description": "lib",
+  "description": "A collection of useful plugins and functions",
   "author": "minzhang <569835014@qq.com>",
   "main": "lib/we-plugins.min.js",
   "repository": {
@@ -9,7 +9,7 @@
     "url": "https://github.com/569835014/plugins.git"
   },
   "scripts": {
-    "docs:dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "docs:dev": "webpack-dev-server --inline --progress --config build/webpack.docs.dev.conf.js",
     "docs:build": "node build/docs-build.js",
     "docs:publish": "node build/docs-publish.js",
     "build": "npm-run-all --parallel build:compress build:uncompress",
