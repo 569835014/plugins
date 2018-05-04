@@ -1,5 +1,5 @@
-<style type="text/less" lang="less">
-  @import "../assets/less/index";
+<style lang="stylus" rel="stylesheet/stylus">
+  @import "../assets/stylus/index";
   .page-header {
     background-color: #fff;
     box-shadow: 0 10px 60px 0 rgba(29,29,31,0.07);

@@ -47,8 +47,8 @@
   }
 </script>
 
-<style lang="less" type="text/less">
-  @import "./assets/less/index";
+<style lang="stylus" rel="stylesheet/stylus">
+  @import "./assets/stylus/index";
 
   .container {
     margin: 48px auto;

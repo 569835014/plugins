@@ -30,7 +30,7 @@
   };
 </script>
 
-<style lang="less" type="text/less">
+<style lang="stylus" rel="stylesheet/stylus">
 
   .demo-container {
     transition: max-height .3s ease;

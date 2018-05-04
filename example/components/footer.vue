@@ -1,4 +1,4 @@
-<style lang="less" type="text/less" scoped>
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   .page-footer {
     padding: 30px 0 30px;
     color: #6190E8;

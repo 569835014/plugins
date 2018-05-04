@@ -1,4 +1,4 @@
-<style lang="less" type="text/less">
+<style lang="stylus" rel="stylesheet/stylus">
   .side-nav{
     display: inline-block;
     margin: 32px 0;

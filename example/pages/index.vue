@@ -22,7 +22,7 @@
     }
   }
 </script>
-<style type="text/less" lang="less">
+<style lang="stylus" rel="stylesheet/stylus">
   .pg-index {
     .index-container {
       width: 960px;
