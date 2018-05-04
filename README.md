@@ -24,7 +24,7 @@
 
 ``` bash
 
-# 编译生成umd格式的`we-plugins.min.js`库文件
+# 编译生成umd格式的`we-plugins.js`库文件
 npm run build
 
 # 尝试用`rollup`进行库文件的构建（*暂不可用*）
