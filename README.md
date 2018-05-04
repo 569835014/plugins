@@ -22,25 +22,31 @@
 
 ## 常用命令说明
 
-### `npm run dev`/`npm run start`
+
+### 库文件相关命令
+
+#### `npm run build`
+
+编译生成umd格式的`we-plugins.min.js`库文件，浏览器端可直接通过script标签引用该文件后进行使用。
+
+#### `npm run rollup`
+
+尝试用`rollup`进行库文件的构建（*暂不可用*）。
+
+
+### 开发文档相关命令
+
+#### `npm run docs:dev`
 
 提供开发文档网站本地开发环境，支持热更新、ES6、Less。
 
-### `npm run build`
+#### `npm run docs:build`
 
 编译出供发布到生产环境用的开发文档网站。编译后的文件会存放在`dist`目录下。
 
-### `npm run public`
+#### `npm run docs:publish`
 
-编译umd格式的`we-plugins.min.js`库文件，浏览器端可直接通过script标签引用该文件后进行使用。
-
-### `npm run publish`
-
-将dist目录下的文件发布到`gh-pages`分支上。
-
-### `npm run rollup`
-
-尝试用`rollup`进行库文件的构建（*暂不可用*）。
+将dist目录下的文件（即开发文档网站静态内容）发布到`gh-pages`分支上。
 
 
 ## 意见/建议

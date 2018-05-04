@@ -9,11 +9,10 @@
     "url": "https://github.com/569835014/plugins.git"
   },
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "docs:dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "docs:build": "node build/docs-build.js",
+    "docs:publish": "node build/docs-publish.js",
     "build": "node build/build.js",
-    "public": "node build/public.js",
-    "publish": "node build/publish.js",
     "rollup": "node rollup/build.js"
   },
   "dependencies": {
