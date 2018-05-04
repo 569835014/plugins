@@ -4,6 +4,10 @@
   "description": "lib",
   "author": "minzhang <569835014@qq.com>",
   "main": "lib/we-plugins.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/569835014/plugins.git"
+  },
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -13,7 +17,6 @@
     "rollup": "node rollup/build.js"
   },
   "dependencies": {
-
     "vue": "^2.5.2",
     "vue-markdown-loader": "^2.4.1",
     "vue-router": "^3.0.1"
