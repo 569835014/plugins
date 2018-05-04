@@ -27,7 +27,7 @@
     }
   }
 </script>
-<style lang="less">
+<style lang="stylus" rel="stylesheet/stylus">
   .skeleton-container {
     width: 960px;
     margin: 0 auto;
