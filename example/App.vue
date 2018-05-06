@@ -38,7 +38,6 @@
       //   this.init = true
       // }, 250)
       this.init = true
-      this.$router.replace('/giud')
     },
     components: {
       mainHeader,

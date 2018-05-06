@@ -1,8 +1,8 @@
 {
   "开发指南": [
     {
-      "name": "giud",
-      "path": "/giud",
+      "name": "introduction",
+      "path": "/introduction",
       "desc": "介绍"
     },
     {
@@ -26,6 +26,12 @@
           "name": "valiform",
           "path": "/valiform"
         }
+      ]
+    },
+    {
+      "desc": "工具函数",
+      "path": "/util",
+      "items": [
       ]
     }
   ]
