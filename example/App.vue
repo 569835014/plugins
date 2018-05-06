@@ -34,9 +34,6 @@
     },
     mounted () {
       //  这里模拟数据请求
-      // setTimeout(() => {
-      //   this.init = true
-      // }, 250)
       this.init = true
     },
     components: {
