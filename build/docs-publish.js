@@ -37,7 +37,8 @@ inquirer.prompt([{
   cd .. &&
   git add . && 
   git commit -m '${answers.message}' &&
-  git push`;
+  git push &&
+  git checkout master`;
   console.log(cmd)
 
   exec(cmd);
