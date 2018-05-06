@@ -32,6 +32,8 @@
       "desc": "工具函数",
       "path": "/util",
       "items": [
+        { "desc": "typeOf", "name": "typeOf", "path": "/typeOf" },
+        { "desc": "hasValue", "name": "hasValue", "path": "/hasValue" }
       ]
     }
   ]
