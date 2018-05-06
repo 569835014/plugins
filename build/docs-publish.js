@@ -24,9 +24,9 @@ inquirer.prompt([{
   name: 'message',
   message: '版本发布说明',
   type: 'input',
-  default: ''
+  default: 'release'
 }]).then(function (answers) {
-  let public = answers.conform ? 'npm run public &&' : '';
+  let public = answers.conform ? 'npm run docs:build &&' : '';
   var cmd = `${public} 
   git checkout gh-pages && 
   rm -rf index.html && 
