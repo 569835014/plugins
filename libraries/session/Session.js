@@ -37,5 +37,5 @@ class Session {
     Vue.prototype.$storage = Session
   }
 }
-
+// Session.Storage='sessionStorage'
 export default Session
