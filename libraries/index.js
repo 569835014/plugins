@@ -9,7 +9,10 @@ const wePlugins = {
 };
 const URL = Util.URL;
 const {getType,hasValue,random}=Util.Tool
+const {Dom,Tool}=Util
 export {
+  Dom,
+  Tool,
   Util,
   Subscribe,
   Session,
