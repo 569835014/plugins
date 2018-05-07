@@ -4,7 +4,18 @@ import navConf from '../nav.config.json'
 
 Vue.use(Router)
 
-let routes = []
+let routes = [
+  {
+    name: 'home',
+    path: '/',
+    redirect: '/introduction'
+  },
+  {
+    name: 'redirect',
+    path: '*',
+    redirect: '/introduction'
+  }
+]
 
 Object.keys(navConf).forEach((header) => {
   routes = routes.concat(navConf[header])
