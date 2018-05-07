@@ -1,5 +1,5 @@
 import hasValue from './hasValue'
-import typeOf from './typeOf'
+import getType from './getType'
 
 /**
  * 返回一个随机数
@@ -13,4 +13,4 @@ function random(n, m) {
   }
   return Math.round(Math.random() * (m - n) + n);
 }
-export {hasValue,typeOf,random}
+export {hasValue,getType,random}

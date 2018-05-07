@@ -1,8 +1,6 @@
-# typeOf
+# getType
 
 ---
-
-*请注意，该函数名为`typeOf`，不是`typeof`。*
 
 ## 作用
 
@@ -14,7 +12,7 @@
 ## 使用示例
 
 ```javascript
-console.log(typeOf('test')) // 'string'
-console.log(typeOf({})) // 'object'
-console.log(123) // 'number'
+console.log(getType('test')) // 'string'
+console.log(getType({})) // 'object'
+console.log(getType(123)) // 'number'
 ```
