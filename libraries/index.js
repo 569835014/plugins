@@ -8,7 +8,7 @@ const wePlugins = {
   Util
 };
 const URL = Util.URL;
-const {typeOf,hasValue,random}=Util.Tool
+const {getType,hasValue,random}=Util.Tool
 export {
   Util,
   Subscribe,
@@ -22,7 +22,7 @@ export {
   getStyle,
   random,
   URL,
-  typeOf,
+  getType,
   hasValue
 }
 window.wePlugins = wePlugins
