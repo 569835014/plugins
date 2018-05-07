@@ -1,6 +1,6 @@
 /**
- * @author monkeywang
- * Date: 17/11/9
+ * @author zhangmin
+ *
  */
 import Subscribe from './subscribe/index.js';
 import ValiForm from './valiform/index.js';
