@@ -1,5 +1,6 @@
 /**
  * 判断元素是不是有某个className
+ * @author zhangmin
  * @param el HTMLElement
  * @param className string
  * @returns {boolean}

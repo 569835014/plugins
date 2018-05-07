@@ -13,6 +13,7 @@ packages/
 index.html
 yarn.lock
 package.json
+rollup/
 static/
 npm-debug.log*
 yarn-debug.log*

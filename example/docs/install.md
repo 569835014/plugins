@@ -13,6 +13,7 @@ npm install we-plugins --save
 通过`npm`安装的模块包，我们可以轻松的使用import或者require的方式引用。
 
 ```javascript
+import { hasClass } from 'we-plugins'
 import { Dom, URL, Tool } from 'we-plugins/libraries/util'
 
 import { hasClass } from 'we-plugins/libraries/util/dom'
@@ -29,4 +30,3 @@ import { hasClass } from 'we-plugins/libraries/util/dom'
 <script src="https://raw.githubusercontent.com/569835014/plugins/master/lib/we-plugins.js"></script>
 ```
 
-需要说明的事，github网络访问起来可能不会一直都很顺畅，建议将js库文件下载到本地项目中然后再引入。
