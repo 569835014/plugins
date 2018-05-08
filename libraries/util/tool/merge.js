@@ -20,8 +20,8 @@ function extend(deep, target, ...arg) {
           flags += pattern.multiline ? 'm' : '';
           target[name] = new RegExp(pattern.source, flags);
         } else {
-          target[name] = (source[name].constructor === Array) ? [] : {};
-          extend(true, target[name], source[name]);
+          target[name] = (item.constructor === Array) ? [] : {};
+          extend(true, target[name], item);
         }
 
       } else {
