@@ -49,6 +49,12 @@ function oneLength(firstType, obj) {
   }
 }
 
+/**
+ * @author zhangmin
+ * @param[0] 任何值，当只有一个参数时这返回这个参数，当参数大于1是这个值如果是boolean这标明是不是深拷贝
+ * @params 把后面的多个对象合并到第二个对象中（第一个参数为占位，标明是不是深拷贝，如果第一个不是boolean这默认调用Object.assign）
+ * @returns {any} 返回新的合并后对象
+ */
 export default function merge(...arg) {
   let target;
   let source;
