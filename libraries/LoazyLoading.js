@@ -1,4 +1,4 @@
-import {getData, getStyle, absolutePosition} from './util/dom'
+import {getData, getStyle, absolutePosition} from '../libraries/util/dom'
 
 class LoazyLoading {
   constructor(config) {
@@ -43,17 +43,31 @@ class LoazyLoading {
       lazyList.forEach((item) => {
         let node = item.nodeName.toLowerCase();
         let url = getData(item, 'src');
-        this.cacheList.push({
+        let {top,left}=absolutePosition(item)
+        let list={
           el: item,
           tag: node,
-          url: url
-        })
+          url: url,
+          top:top-this.container.top,
+          left:left-this.container.left
+        }
+        this.cacheList.push(list)
+        if(this.config.loadingImg){
+          this.addUrl(list,this.config.loadingImg)
+        }
+
       })
     } else {
       console.warn('没有要延迟加载的元素')
     }
   }
-
+  addUrl(item,url){
+    if(item.tag==='img'){
+      item.el.src=url
+    }else{
+      item.el.style.backgroundImage=`url(${url})`
+    }
+  }
   loading() {
     if (this.cacheList.length === 0) {
       this.config.container.removeEventListener('scroll', this.loading, false)
@@ -63,23 +77,17 @@ class LoazyLoading {
       let container=this.config.container===window? document.documentElement:this.config.container
       for (let i = len; i > -1; i--) {
         let item = this.cacheList[i]
-        let absolute = absolutePosition(item.el);
-        let posTop = absolute.top - this.container.top;
-        let posLeft = absolute.left - this.container.left;
+        let posTop = item.top
+        let posLeft = item.left
         let scrollTop = container.scrollTop;
         let scrollLeft = container.scrollLeft;
 
         let url=item.url;
-        console.info('container.height:'+this.container.height)
-        console.info('top:'+(posTop-config.offSet-scrollTop))
-        if (((posTop-config.offSet-this.container.height <= scrollTop)) && (posLeft < scrollLeft + config.offSet + this.container.width)) {
+        // console.info('posTop:'+posTop)
+
+        if (((posTop <= (scrollTop+config.offSet+this.container.height))) && (posLeft < scrollLeft + config.offSet + this.container.width)) {
           if (getStyle(item.el, 'display') !== 'none' && getStyle(item.el, 'visibility') !== 'hidden'&&url) {
-            if(item.tag==='img'){
-              item.el.src=url
-            }else{
-              item.el.style.color='red';
-              item.el.style.backgroundImage=`url(${url})`
-            }
+            this.addUrl(item,url)
           }
           if(item.on) item.on.apply(null,[item,i])
           if (i <= 0) {
