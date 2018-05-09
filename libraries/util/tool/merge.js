@@ -3,9 +3,9 @@ import getType from './getType.js'
 const type = ['string', 'number', 'boolean', 'null', 'undefined']
 
 function extend(deep, target, ...arg) {
+  target = target || {};
   if (!deep) return Object.assign(target, ...arg);
   else {
-    target = target || {};
     let source = arg ? arg[0] : null
     for (let name in source) {
       let item = source[name]
@@ -20,7 +20,10 @@ function extend(deep, target, ...arg) {
           flags += pattern.multiline ? 'm' : '';
           target[name] = new RegExp(pattern.source, flags);
         } else {
-          target[name] = (item.constructor === Array) ? [] : {};
+          if(!target[name]||typeof target[name]!=="object"){
+            target[name] = (item.constructor === Array) ? [] : {};
+          }
+
           extend(true, target[name], item);
         }
 
@@ -70,14 +73,17 @@ export default function merge(...arg) {
       if (firstType === 'boolean') {
         target = arg[1];
         source = arg.slice(2);
-        source.forEach((item) => {
-          target = extend(firstType, target, item)
-        })
-        return target
+        if(arg[0]===true){
+          source.forEach((item) => {
+            target = extend(true, target, item)
+          })
+          return target
+        }
+        return extend(false,target, ...source)
       } else {
         target = arg[0];
         source = arg.slice(1);
-        extend(target, ...source)
+        extend(false,target, ...source)
         return target
       }
     }
