@@ -126,9 +126,9 @@ export function getStyle(ele, attr) {
   if (!assertionDom(ele)) {
     throw new Error('请传入一个dom元素')
   }
-  if (element.currentStyle) {
-    return element.currentStyle[attr];
+  if (ele.currentStyle) {
+    return ele.currentStyle[attr];
   } else {
-    return window.getComputedStyle(element, null)[attr];
+    return window.getComputedStyle(ele, null)[attr];
   }
 }
