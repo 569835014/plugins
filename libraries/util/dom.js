@@ -82,10 +82,10 @@ export function assertionDom(ele) {
 
 function getPos(ele) {
   let left = 0, top = 0;
-  while (obj) {
-    left += obj.offsetLeft;
-    top += obj.offsetTop;
-    obj = obj.offsetParent;
+  while (ele) {
+    left += ele.offsetLeft;
+    top += ele.offsetTop;
+    ele = ele.offsetParent;
   }
   return {
     left: left,
@@ -108,8 +108,8 @@ export function absolutePosition(ele) {
   } else {
     result = getPos(ele)
   }
-  let left = result.left
-  let top = result.top
+  let left = result.left+ document.documentElement.scrollLeft
+  let top = result.top+ document.documentElement.scrollTop
   return {
     left,
     top
