@@ -8,7 +8,7 @@ const wePlugins = {
   Util
 };
 const URL = Util.URL;
-const {getType,hasValue,random}=Util.Tool
+const {getType,hasValue,random,merge,judge}=Util.Tool
 const {Dom,Tool}=Util
 export {
   Dom,
@@ -26,7 +26,9 @@ export {
   random,
   URL,
   getType,
-  hasValue
+  hasValue,
+  merge,
+  judge
 }
 window.wePlugins = wePlugins
 export default wePlugins

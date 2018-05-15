@@ -1,6 +1,7 @@
-import {getData, getStyle, absolutePosition} from '../libraries/util/dom'
+import {getData, getStyle, absolutePosition} from '../../libraries/util/dom'
 
 class LoazyLoading {
+
   constructor(config) {
     let base = {
       attr: "data-src",
@@ -35,8 +36,8 @@ class LoazyLoading {
     }
     this.initCachList();
     this.loading();
-
   }
+
   initCachList() {
     if (document) {
       let lazyList = Array.prototype.slice.call(document.querySelectorAll(`[${this.config.attr}]`), 0);
@@ -44,65 +45,68 @@ class LoazyLoading {
       lazyList.forEach((item) => {
         let node = item.nodeName.toLowerCase();
         let url = getData(item, 'src');
-        let list={
+        let list = {
           el: item,
           tag: node,
           url: url,
         }
-        if(item.offsetWidth>0&&item.offsetHeight>0){
-          let {top,left}=absolutePosition(item);
-          list.top=top;
-          list.left=left
+        if (item.offsetWidth > 0 && item.offsetHeight > 0) {
+          let {top, left} = absolutePosition(item);
+          list.top = top;
+          list.left = left
         }
         this.cacheList.push(list)
-        if(this.config.loadingImg){
-          this.addUrl(list,this.config.loadingImg)
+        if (this.config.loadingImg) {
+          this.addUrl(list, this.config.loadingImg)
         }
 
       })
-
+      console.info(this.cacheList)
     } else {
       console.warn('没有要延迟加载的元素')
     }
   }
-  addUrl(item,url){
-    if(item.tag==='img'){
-      item.el.src=url
-    }else{
-      item.el.style.backgroundImage=`url(${url})`
+
+  addUrl(item, url) {
+    if (item.tag === 'img') {
+      item.el.src = url
+    } else {
+      item.el.style.backgroundImage = `url(${url})`
     }
   }
+
   loading() {
     if (this.cacheList.length === 0) {
       this.config.container.removeEventListener('scroll', this.loading, false)
     } else {
-      let len = this.cacheList.length-1;
+      let len = this.cacheList.length - 1;
       let config = this.config;
-      let container=this.config.container===window? document.documentElement:this.config.container
+      let container = this.config.container === window ? document.documentElement : this.config.container
       for (let i = len; i > -1; i--) {
         let item = this.cacheList[i]
         let posTop
         let posLeft
-        if(item.top){
-          posTop=item.top;
-          posLeft=item.left
-        }else{
-          let {top,left}=absolutePosition(item.el);
-          posTop=top;
-          posLeft=left
+        if (item.top) {
+          posTop = item.top;
+          postLeft = item.left
+        } else {
+          let {top, left} = absolutePosition(item.el);
+          posTop = top;
+          posLeft = left
         }
 
         let scrollTop = container.scrollTop;
         let scrollLeft = container.scrollLeft;
 
-        let url=item.url;
+        let url = item.url;
 
 
-        if (((posTop <= (scrollTop+config.offSet+this.container.height))) && (posLeft < scrollLeft + config.offSet + this.container.width)) {
-          if (getStyle(item.el, 'display') !== 'none' && getStyle(item.el, 'visibility') !== 'hidden'&&url) {
-            this.addUrl(item,url)
+        if (((posTop <= (scrollTop + config.offSet + this.container.height))) && (posLeft < scrollLeft + config.offSet + this.container.width)) {
+          if (getStyle(item.el, 'display') !== 'none' && getStyle(item.el, 'visibility') !== 'hidden' && url) {
+            console.info(getData(item.el, 'index'))
+            this.addUrl(item, url)
           }
-          if(item.on) item.on.apply(null,[item,i])
+          if (item.on) item.on.apply(null, [item, i])
 
           if (i < 0) {
             this.cacheList = [];
@@ -116,12 +120,29 @@ class LoazyLoading {
       }
     }
   }
-  addEvent(){
-    this.config.container.addEventListener("scroll", this.loading.bind(this),false)
+
+  addEvent() {
+    this.config.container.addEventListener("scroll", this.loading.bind(this), false)
   }
-  remove(){
-    this.config.container.removeEventListener("scroll", this.loading,false)
-    this.cacheList=[]
+
+  remove() {
+    this.config.container.removeEventListener("scroll", this.loading, false)
+    this.cacheList = []
+  }
+
+  static install(Vue, config) {
+    let loazy = new LoazyLoading(config)
+    Vue.prototype.$loazy = loazy
+    Vue.directive('container', {
+      inserted(el) {
+
+        loazy.config.container = el
+      },
+      bind(el, binding, vnode){
+        console.info(vnode.context)
+      }
+    })
   }
 }
+
 export default LoazyLoading
