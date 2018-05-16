@@ -1,5 +1,6 @@
 import Subscribe from './subscribe/Subscribe'
 import Session from './session/Session'
+import LoazyLoading from './LoazyLoading'
 import * as Util from './util/index'
 const {hasClass, getData, addClass, prefixStyle, absolutePosition, assertionDom, getStyle,} = Util.Dom;
 const wePlugins = {
@@ -9,7 +10,7 @@ const wePlugins = {
 };
 const URL = Util.URL;
 const {getType,hasValue,random,merge,judge}=Util.Tool
-const {debounce,throttle}=Util.partial
+const {debounce,throttle,curring}=Util.partial
 const partial=Util.partial
 const {Dom,Tool}=Util
 export {
@@ -18,6 +19,7 @@ export {
   Util,
   Subscribe,
   Session,
+  LoazyLoading,
   hasClass,
   getData,
   addClass,
@@ -33,6 +35,7 @@ export {
   judge,
   debounce,
   throttle,
+  curring,
   partial
 }
 window.wePlugins = wePlugins

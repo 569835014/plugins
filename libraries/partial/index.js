@@ -12,7 +12,7 @@ export function debounce(fun,context,delay=200){
   }
   let time=null;
   return function () {
-    let arg=Array.prototype.slice.call(arguments,0)
+    let arg=[].call(arguments,0)
     clearTimeout(time);
     time=setTimeout(()=>{
       fun.apply(context,arg)
@@ -35,11 +35,29 @@ export function throttle(fun,context,interval=30) {
   let startTime=0;
   let endTime;
   return function () {
-    let arg=Array.prototype.slice.call(arguments,0);
+    let arg=[].slice.call(arguments,0);
     endTime=new Date().getTime();
     if(endTime-startTime>interval){
       fun.apply(context,arg)
       startTime=endTime
     }
   }
+}
+
+/***
+ * 函数柯里化
+ * @param fun Function
+ * @param context Object 指针
+ * @returns {Function}
+ */
+export function curring(fun,context) {
+  if(typeof fun!=="function"){
+    console.warn('传入的不是一个函数')
+    return fun
+  }
+  let arg=[].slice.call(arguments,1);
+  return function() {
+    let newArgs = arg.concat([].slice.call(arguments));
+    return fun.apply(context, newArgs);
+  };
 }
