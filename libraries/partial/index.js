@@ -3,9 +3,10 @@
  * @param fun Function
  * @param context Object 指针
  * @param delay Nubmer 延迟时间
+ * @param immediate Boolean 第一次是否立即执行
  * @returns {Function}
  */
-export function debounce(fun,context,delay=200){
+export function debounce(fun,context,delay=200,immediate=false){
   if(typeof fun!=="function"){
     console.warn('传入的不是一个函数')
     return fun
