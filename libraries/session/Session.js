@@ -1,6 +1,6 @@
 class Session {
 
-  static Storage = 'sessionStorage'
+
   static saveItem(key, value) {
     window[this.Storage].setItem(key, JSON.stringify(value))
   }
@@ -37,5 +37,5 @@ class Session {
     Vue.prototype.$storage = Session
   }
 }
-// Session.Storage='sessionStorage'
+Session.Storage='sessionStorage'
 export default Session

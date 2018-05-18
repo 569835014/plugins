@@ -1,4 +1,4 @@
-const userAgent=navigator.userAgent;
+export const userAgent=navigator.userAgent;
 
 export const isBrowser=typeof window !=='undefined';
 export const isClient=typeof global !=='undefined';

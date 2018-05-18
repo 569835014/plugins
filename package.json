@@ -1,6 +1,6 @@
 {
   "name": "we-plugins",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "description": "A collection of useful plugins and functions",
   "author": "minzhang <569835014@qq.com>",
   "main": "lib/we-plugins.min.js",

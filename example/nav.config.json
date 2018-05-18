@@ -32,7 +32,7 @@
       "desc": "工具函数",
       "path": "/util",
       "items": [
-        { "desc": "typeOf", "name": "typeOf", "path": "/typeOf" },
+        { "desc": "getType", "name": "getType", "path": "/getType" },
         { "desc": "hasValue", "name": "hasValue", "path": "/hasValue" }
       ]
     }
