@@ -1,10 +1,12 @@
 import Subscribe from './subscribe/Subscribe'
 import Session from './session/Session'
 import LoazyLoading from './LoazyLoading'
+import Upload from './upload/Upload'
 import * as Util from './util/index'
 const {hasClass, getData, addClass, prefixStyle, absolutePosition, assertionDom, getStyle,} = Util.Dom;
 const wePlugins = {
   Subscribe,
+  Upload,
   Session,
   Util
 };
@@ -14,6 +16,7 @@ const {debounce,throttle,curring}=Util.partial
 const partial=Util.partial
 const {Dom,Tool}=Util
 export {
+  Upload,
   Dom,
   Tool,
   Util,
