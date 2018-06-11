@@ -86,6 +86,18 @@ class Upload {
     }
     return new Blob([new Uint8Array(array)], {type:type });
   }
+  async base64(fn,image){
+    if(window.FileReader){
+      let reader = new FileReader()
+      fn.call(this)
+      reader.readAsDataURL(this.file);
+      await packingAsync(reader)
+      return reader.result;
+    }else if(navigator.appName === 'Microsoft Internet Explorer'&&image){
+      image.style.filter = 'progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)';
+      image.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = this.file;
+    }
+  }
   async sendFile(file, info) {
     console.info(file)
     let arg = Array.from(arguments)
@@ -143,12 +155,10 @@ class Upload {
     }).catch(()=>{
     })
   }
-
   vailDateIMG(file) {
     let reg = new RegExp('.+(.JPEG|.jpeg|.JPG|.jpg|.GIF|.gif|.BMP|.bmp|.PNG|.png)$');
     return reg.test(file)
   }
-
   createdAjax() {
     if (window.ActiveXObject) {
       return new ActiveXObject("Microsoft.XMLHTTP");
@@ -156,23 +166,16 @@ class Upload {
       return new XMLHttpRequest();
     }
   }
-
   async compress() {
     let compressOptions = this.options.compressOptions || {}
     let Orientation = null;
     let image = new Image();
-    if (window.FileReader) {
-      let reader = new FileReader()
+    let base64=await this.base64(function () {
       ExIF.getData(this.file, function () {
         Orientation = ExIF.getTag(this, 'Orientation');
       });
-      reader.readAsDataURL(this.file);
-      await packingAsync(reader)
-      image.src = reader.result;
-    } else if (navigator.appName === 'Microsoft Internet Explorer') {
-      image.style.filter = 'progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)';
-      image.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = this.file;
-    }
+    },image);
+    image.src =base64
     await packingAsync(image)
     let imgWidth = image.width;
     let imgHeight = image.height;

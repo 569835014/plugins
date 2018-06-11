@@ -21,13 +21,18 @@ class Subscribe {
   }
 
   emit (name, ...arg) {
+    let result = true
     let subscribe = this.handle[name]
     // 发布信息
     if (Array.isArray(subscribe)) {
       subscribe.map((item) => {
-        item.apply(this, arg)
+        let flag = item.apply(this, arg)
+        if (!flag) {
+          result = flag
+        }
       })
     }
+    return result
   }
 
   off (name, listener) {

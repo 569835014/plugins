@@ -2,7 +2,7 @@ export const userAgent=navigator.userAgent;
 
 export const isBrowser=typeof window !=='undefined';
 export const isClient=typeof global !=='undefined';
-export const isIE=userAgent.indexOf('Trident')>-1;
+export const isIE=userAgent.indexOf("MSIE")>-1;
 export const isOpera=userAgent.indexOf('Presto')>-1;
 export const isWebKit=userAgent.indexOf('AppleWebKit')>-1;
 export const isFirefox=userAgent.indexOf('Gecko')>-1&&userAgent.indexOf('KHTML')
