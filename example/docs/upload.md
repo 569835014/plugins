@@ -17,7 +17,7 @@
 
 
 ### 名词解释
-`upload` 把文件
+`upload` 把文件用ajax上传到服务器上，支持图片压缩上传
 ### 用法
 
 <div class="dome-alert demo-block">
