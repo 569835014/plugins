@@ -23,7 +23,9 @@ class Upload {
     this.options = options;
     this.subscribe = new Subscribe()
   }
-
+  static install(Vue){
+    Vue.prototype.$upload=this
+  }
   on() {
     this.subscribe.on(...arguments)
   }
@@ -89,7 +91,7 @@ class Upload {
   async base64(fn,image){
     if(window.FileReader){
       let reader = new FileReader()
-      fn.call(this)
+      fn&&fn.call(this)
       reader.readAsDataURL(this.file);
       await packingAsync(reader)
       return reader.result;
@@ -98,13 +100,16 @@ class Upload {
       image.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = this.file;
     }
   }
+  threshold(threshold,size){
+    return size>(threshold||1048575)
+  }
   async sendFile(file, info) {
-    console.info(file)
+
     let arg = Array.from(arguments)
     let xhr = this.createdAjax();
     let form = new FormData(); // FormData 对象
 
-    if (this.options.compressOptions && this.vailDateIMG(this.file.name)&&this.file.size>1024*1024) {
+    if (this.options.compressOptions && this.vailDateIMG(this.file.name)&&this.threshold(this.options.compressOptions.threshold,this.file.size)) {
       this.emit('beforeCompress', ...arg)
       this.file.status = this.info.status = 'beforeCompress'
       let base64 = await this.compress();

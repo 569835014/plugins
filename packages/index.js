@@ -4,6 +4,7 @@
  */
 import Subscribe from './subscribe/index.js';
 import ValiForm from './valiform/index.js';
+import Upload from './upload/index.js';
 import Skeleton  from './skeleton/index'
 import Col  from './col/index'
 import Row  from './row/index'
@@ -14,7 +15,8 @@ const components = [
   Skeleton,
   Row,
   Col,
-  ValiForm
+  ValiForm,
+  Upload
 ]
 
 const install = function(Vue) {
