@@ -62,12 +62,13 @@
         })
         file.on('compressSuccess',(base64,info)=>{
 
-          console.info(info.status)
+          // console.info(info.status)
         })
         file.on('error',(...arg)=>{
           console.info(arg)
         })
         this.img=await file.send();
+        console.info(this.img)
       }
     }
   }

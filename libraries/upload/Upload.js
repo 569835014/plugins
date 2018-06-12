@@ -66,13 +66,16 @@ class Upload {
   }
 
   validationFile(file) {
-    if (file instanceof File) return true
-    return false
+    if(File){
+      return (file instanceof File)
+    }else{
+      return typeof file==="string"
+    }
   }
 
   async send() {
-    let result=await this.sendFile(this.file, this.info)
-    return result
+
+    return  await this.sendFile(this.file, this.info)
   }
 
   getFileSizeDesc(fileSize) {
@@ -98,6 +101,7 @@ class Upload {
     }else if(navigator.appName === 'Microsoft Internet Explorer'&&image){
       image.style.filter = 'progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)';
       image.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = this.file;
+      return this.file
     }
   }
   threshold(threshold,size){
@@ -141,20 +145,29 @@ class Upload {
         this.emit('progress', e,this.info,arguments)
       }
     }
-    xhr.send(form);
     return new Promise((resolve, reject) => {
+      xhr.send(form);
       xhr.onreadystatechange = () => {
-
         // 这步为判断服务器是否正确响应
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          this.emit('success', xhr.responseText)
-          file.status = info.status = 'success'
-          resolve(xhr.responseText,this.info)
-        } else {
-          console.info(xhr.status)
-          this.emit('error',this.info,xhr.status)
-          file.status = info.status = 'error'
-          reject(xhr, this.info,xhr.status)
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            this.emit('success', xhr.responseText)
+            file.status = info.status = 'success'
+            resolve({
+              data:xhr.responseText,
+              status:xhr.status,
+              info:this.info
+            })
+          }else{
+            console.info(xhr.readyState)
+            this.emit('error',this.info,xhr.status)
+            file.status = info.status = 'error'
+            resolve({
+              data:xhr.responseText,
+              status:xhr.status,
+              info:this.info
+            })
+          }
         }
       };
     }).catch(()=>{

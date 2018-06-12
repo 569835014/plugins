@@ -61,7 +61,7 @@ const vueMarkdown = {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: process.env.NODE_ENV === 'public'?'./libraries/index.js':'./example/main.js'
+    app: ['babel-polyfill',process.env.NODE_ENV === 'public'?'./libraries/index.js':'./example/main.js']
   },
   output: {
     path: process.env.NODE_ENV === 'public'?config.public.assetsRoot:config.build.assetsRoot,
